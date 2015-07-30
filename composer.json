@@ -1,5 +1,5 @@
 {
-    "name": "ihsanudin/symfony-bundle-plugins",
+    "name": "symfonyid/symfony-bundle-plugins",
     "type": "library",
     "description": "Allow Symfony bundles to have plugins",
     "keywords": ["Symfony", "bundle", "plugin"],
