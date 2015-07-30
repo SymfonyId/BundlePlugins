@@ -27,7 +27,7 @@ final class ConfigurationWithPlugins implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root($this->bundle->getAlias());
-        $bundleNode = $this->bundle->addConfiguration($rootNode);
+        $this->bundle->addConfiguration($rootNode);
 
         foreach ($this->bundle->getPlugins() as $plugin) {
             $pluginNode = $rootNode->children()->arrayNode($plugin->name());
