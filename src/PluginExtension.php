@@ -75,7 +75,11 @@ final class PluginExtension extends Extension
     private function pluginConfiguration(PluginInterface $plugin, array $processedConfiguration)
     {
         if (!isset($processedConfiguration[$plugin->name()])) {
-            throw new UnsetKeyException(sprintf('The %s key must be set.', $plugin->name()));
+            if ($plugin->isRequireConfigurationKey()) {
+                throw new UnsetKeyException(sprintf('The %s key must be set.', $plugin->name()));
+            }
+
+            return array();
         }
 
         return $processedConfiguration[$plugin->name()];

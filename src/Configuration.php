@@ -34,9 +34,6 @@ final class Configuration implements ConfigurationInterface
             $plugin->addConfiguration($pluginNode);
         }
 
-        var_dump($treeBuilder);
-        exit();
-
         return $treeBuilder;
     }
 }
