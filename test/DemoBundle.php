@@ -2,10 +2,10 @@
 
 namespace Symfonian\Indonesia\BundlePlugins\Tests;
 
-use Symfonian\Indonesia\BundlePlugins\BundleWithPlugins;
+use Symfonian\Indonesia\BundlePlugins\PluginBundle;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 
-class DemoBundle extends BundleWithPlugins
+class DemoBundle extends PluginBundle
 {
     public function getAlias()
     {

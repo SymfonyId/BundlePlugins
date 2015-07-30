@@ -11,13 +11,13 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  * constructor arguments.
  *
  * The bundle itself can have no container extension or configuration anymore. Instead, you can introduce something
- * like a `CorePlugin`, which is registered as a `BundlePlugin` for this bundle. Return an instance of it from your
+ * like a `CorePlugin`, which is registered as a `PluginInterface` for this bundle. Return an instance of it from your
  * bundle's `defaultPlugins()` method.
  */
-abstract class BundleWithPlugins extends Bundle
+abstract class PluginBundle extends Bundle
 {
     /**
-     * @var BundlePlugin[]
+     * @var PluginInterface[]
      */
     private $registeredPlugins = array();
 
@@ -59,9 +59,9 @@ abstract class BundleWithPlugins extends Bundle
     }
 
     /**
-     * Provide any number of `BundlePlugin`s that should always be registered.
+     * Provide any number of `PluginInterface`s that should always be registered.
      *
-     * @return BundlePlugin[]
+     * @return PluginInterface[]
      */
     protected function defaultPlugins()
     {
@@ -73,15 +73,15 @@ abstract class BundleWithPlugins extends Bundle
      */
     final public function getContainerExtension()
     {
-        return new ExtensionWithPlugins($this);
+        return new PluginExtension($this);
     }
 
     /**
      * Register a plugin for this bundle.
      *
-     * @param BundlePlugin $plugin
+     * @param PluginInterface $plugin
      */
-    private function registerPlugin(BundlePlugin $plugin)
+    private function registerPlugin(PluginInterface $plugin)
     {
         $this->registeredPlugins[] = $plugin;
     }

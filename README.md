@@ -15,14 +15,14 @@ Install this library in your project by running
 
 ## Example
 
-First, your bundle should extend `BundleWithPlugins`. You need to implement
+First, your bundle should extend `PluginBundle`. You need to implement
 the `getAlias` method. It should return the name of your bundle's
 configuration key (as it will be used in `config.yml` for instance).
 
 ```php
-use Symfonian\Indonesia\BundlePlugins\BundleWithPlugins;
+use Symfonian\Indonesia\BundlePlugins\PluginBundle;
 
-class DemoBundle extends BundleWithPlugins
+class DemoBundle extends PluginBundle
 {
     protected function getAlias()
     {
@@ -31,17 +31,17 @@ class DemoBundle extends BundleWithPlugins
 }
 ```
 
-Each plugin for the bundle should implement `BundlePlugin`:
+Each plugin for the bundle should implement `PluginBundle`:
 
 ```php
-use Symfonian\Indonesia\BundlePlugins\BundlePlugin;
+use Symfonian\Indonesia\BundlePlugins\PluginBundle;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class FooPlugin implements BundlePlugin
+class FooPlugin implements PluginBundle
 {
     public function name()
     {
@@ -77,7 +77,7 @@ class FooPlugin implements BundlePlugin
 ```
 
 When instantiating this bundle in your `AppKernel` class, you can provide any
-number of `BundlePlugin` instances:
+number of `PluginBundle` instances:
 
 ```php
 class AppKernel extends Kernel
@@ -114,7 +114,7 @@ When a bundle plugin needs to register a compiler pass, it can do so in its
 `build()` method.
 
 ```php
-class FooPlugin implements BundlePlugin
+class FooPlugin implements PluginBundle
 {
     ...
 
@@ -132,7 +132,7 @@ initialization as well. They can do this in their `boot()` method. At that
 time, the fully initialized service container is available:
 
 ```php
-class FooPlugin implements BundlePlugin
+class FooPlugin implements PluginBundle
 {
     ...
 
@@ -147,7 +147,7 @@ class FooPlugin implements BundlePlugin
 ## Simple plugins
 
 If your plugin is quite simple (i.e. only needs a `load()` method), just make
-the plugin class extend `SimpleBundlePlugin` which contains stub
+the plugin class extend `SimplePluginBundle` which contains stub
 implementations for the interface methods that you won't need.
 
 ## Thanks

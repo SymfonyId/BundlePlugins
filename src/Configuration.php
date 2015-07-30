@@ -5,17 +5,17 @@ namespace Symfonian\Indonesia\BundlePlugins;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
-final class ConfigurationWithPlugins implements ConfigurationInterface
+final class Configuration implements ConfigurationInterface
 {
     /**
-     * @var BundleWithPlugins
+     * @var PluginBundle
      */
     private $bundle;
 
     /**
-     * @param BundleWithPlugins $bundle
+     * @param PluginBundle $bundle
      */
-    public function __construct(BundleWithPlugins $bundle)
+    public function __construct(PluginBundle $bundle)
     {
         $this->bundle = $bundle;
     }

@@ -2,10 +2,10 @@
 
 namespace Symfonian\Indonesia\BundlePlugins\Tests;
 
-use Symfonian\Indonesia\BundlePlugins\SimpleBundlePlugin;
+use Symfonian\Indonesia\BundlePlugins\Plugin;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class ASimplePlugin extends SimpleBundlePlugin
+class ASimplePlugin extends Plugin
 {
     public function name()
     {

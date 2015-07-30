@@ -5,17 +5,17 @@ namespace Symfonian\Indonesia\BundlePlugins;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-final class ExtensionWithPlugins extends Extension
+final class PluginExtension extends Extension
 {
     /**
-     * @var BundleWithPlugins
+     * @var PluginBundle
      */
     private $bundle;
 
     /**
-     * @param BundleWithPlugins $bundle
+     * @param PluginBundle $bundle
      */
-    public function __construct(BundleWithPlugins $bundle)
+    public function __construct(PluginBundle $bundle)
     {
         $this->bundle = $bundle;
     }
@@ -39,7 +39,7 @@ final class ExtensionWithPlugins extends Extension
      */
     public function getConfiguration(array $config, ContainerBuilder $container)
     {
-        return new ConfigurationWithPlugins($this->bundle);
+        return new Configuration($this->bundle);
     }
 
     /**
@@ -52,10 +52,10 @@ final class ExtensionWithPlugins extends Extension
 
     /**
      * @param ContainerBuilder $container
-     * @param BundlePlugin $plugin
+     * @param PluginInterface $plugin
      * @param array $processedConfiguration The fully processed configuration values for this bundle
      */
-    private function loadPlugin(ContainerBuilder $container, BundlePlugin $plugin, array $processedConfiguration)
+    private function loadPlugin(ContainerBuilder $container, PluginInterface $plugin, array $processedConfiguration)
     {
         $container->addClassResource(new \ReflectionClass(get_class($plugin)));
 
@@ -67,11 +67,11 @@ final class ExtensionWithPlugins extends Extension
     /**
      * Get just the part of the configuration values that applies to the given plugin.
      *
-     * @param BundlePlugin $plugin
+     * @param PluginInterface $plugin
      * @param array $processedConfiguration The fully processed configuration values for this bundle
      * @return array
      */
-    private function pluginConfiguration(BundlePlugin $plugin, array $processedConfiguration)
+    private function pluginConfiguration(PluginInterface $plugin, array $processedConfiguration)
     {
         if (!isset($processedConfiguration[$plugin->name()])) {
             return array();

@@ -2,14 +2,14 @@
 
 namespace Symfonian\Indonesia\BundlePlugins\Tests;
 
-use Symfonian\Indonesia\BundlePlugins\BundlePlugin;
+use Symfonian\Indonesia\BundlePlugins\PluginInterface;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class CorePlugin implements BundlePlugin
+class CorePlugin implements PluginInterface
 {
     public function name()
     {
