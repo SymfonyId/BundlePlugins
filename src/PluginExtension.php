@@ -4,6 +4,7 @@ namespace Symfonian\Indonesia\BundlePlugins;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\Config\Definition\Exception\UnsetKeyException;
 
 final class PluginExtension extends Extension
 {
@@ -74,7 +75,7 @@ final class PluginExtension extends Extension
     private function pluginConfiguration(PluginInterface $plugin, array $processedConfiguration)
     {
         if (!isset($processedConfiguration[$plugin->name()])) {
-            return array();
+            throw new UnsetKeyException(sprintf('The %s key must be set.', $plugin->name()));
         }
 
         return $processedConfiguration[$plugin->name()];
