@@ -21,12 +21,27 @@ abstract class PluginBundle extends Bundle
      */
     private $registeredPlugins = array();
 
+    /**
+     * Bundle alias. Used for config key.
+     *
+     * @return string
+     */
     abstract public function getAlias();
 
+    /**
+     * Override this method to add bundle config tree.
+     *
+     * @param NodeDefinition $rootNode
+     */
     public function addConfiguration(NodeDefinition $rootNode)
     {
     }
 
+    /**
+     * Override this method to register compiler pass.
+     *
+     * @param ContainerBuilder $container
+     */
     public function addCompilerPass(ContainerBuilder $container)
     {
     }
@@ -91,6 +106,9 @@ abstract class PluginBundle extends Bundle
         $this->registeredPlugins[] = $plugin;
     }
 
+    /**
+     * @return array $plugins
+     */
     public function getPlugins()
     {
         return $this->registeredPlugins;
