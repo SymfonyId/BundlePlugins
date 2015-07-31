@@ -27,6 +27,10 @@ abstract class PluginBundle extends Bundle
     {
     }
 
+    public function addCompilerPass(ContainerBuilder $container)
+    {
+    }
+
     final public function __construct(array $plugins = array())
     {
         foreach ($this->defaultPlugins() as $plugin) {
@@ -43,6 +47,7 @@ abstract class PluginBundle extends Bundle
      */
     final public function build(ContainerBuilder $container)
     {
+        $this->addCompilerPass($container);
         foreach ($this->registeredPlugins as $plugin) {
             $plugin->build($container);
         }
