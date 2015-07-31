@@ -15,6 +15,8 @@ interface PluginInterface
      */
     public function name();
 
+    public function isRequireConfigurationKey();
+
     /**
      * Load this plugin: define services, load service definition files, etc.
      *
