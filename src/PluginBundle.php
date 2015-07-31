@@ -46,6 +46,10 @@ abstract class PluginBundle extends Bundle
     {
     }
 
+    public function load(array $config, ContainerBuilder $container)
+    {
+    }
+
     final public function __construct(array $plugins = array())
     {
         foreach ($this->defaultPlugins() as $plugin) {

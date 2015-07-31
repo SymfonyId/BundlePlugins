@@ -30,6 +30,8 @@ final class PluginExtension extends Extension
 
         $processedConfiguration = $this->processConfiguration($configuration, $config);
 
+        $this->bundle->load($processedConfiguration, $container);
+
         foreach ($this->bundle->getPlugins() as $plugin) {
             $this->loadPlugin($container, $plugin, $processedConfiguration);
         }

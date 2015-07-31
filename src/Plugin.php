@@ -37,4 +37,9 @@ abstract class Plugin implements PluginInterface
     public function boot(ContainerInterface $container)
     {
     }
+
+    public function isRequireConfigurationKey()
+    {
+        return true;
+    }
 }
