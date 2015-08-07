@@ -2,6 +2,7 @@
 
 namespace Symfonian\Indonesia\BundlePlugins;
 
+use Symfony\Component\Console\Application;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
@@ -79,6 +80,15 @@ abstract class PluginBundle extends Bundle
     {
         foreach ($this->registeredPlugins as $plugin) {
             $plugin->boot($this->container);
+        }
+    }
+
+    final public function registerCommands(Application $application)
+    {
+        parent::registerCommands($application);
+
+        foreach ($this->registeredPlugins as $plugin) {
+            $plugin->registerCommands($application);
         }
     }
 

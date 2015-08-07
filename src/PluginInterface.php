@@ -5,6 +5,7 @@ namespace Symfonian\Indonesia\BundlePlugins;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Console\Application;
 
 interface PluginInterface
 {
@@ -57,4 +58,6 @@ interface PluginInterface
      * @return void
      */
     public function boot(ContainerInterface $container);
+
+    public function registerCommands(Application $application);
 }

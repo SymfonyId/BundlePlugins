@@ -3,6 +3,7 @@
 namespace Symfonian\Indonesia\BundlePlugins;
 
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
+use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -41,5 +42,9 @@ abstract class Plugin implements PluginInterface
     public function isRequireConfigurationKey()
     {
         return true;
+    }
+
+    public function registerCommands(Application $application)
+    {
     }
 }
