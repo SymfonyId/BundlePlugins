@@ -3,7 +3,7 @@
 namespace Symfonian\Indonesia\BundlePlugins;
 
 use Symfony\Component\Console\Application;
-use Symfony\Component\Config\Definition\Builder\NodeDefinition;
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -32,9 +32,9 @@ abstract class PluginBundle extends Bundle
     /**
      * Override this method to add bundle config tree.
      *
-     * @param NodeDefinition $rootNode
+     * @param ArrayNodeDefinition $rootNode
      */
-    public function addConfiguration(NodeDefinition $rootNode)
+    public function addConfiguration(ArrayNodeDefinition $rootNode)
     {
     }
 
