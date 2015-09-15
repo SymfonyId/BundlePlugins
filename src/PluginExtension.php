@@ -22,7 +22,7 @@ final class PluginExtension extends Extension
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function load(array $config, ContainerBuilder $container)
     {
@@ -38,7 +38,7 @@ final class PluginExtension extends Extension
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getConfiguration(array $config, ContainerBuilder $container)
     {
@@ -46,7 +46,7 @@ final class PluginExtension extends Extension
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getAlias()
     {
@@ -55,8 +55,8 @@ final class PluginExtension extends Extension
 
     /**
      * @param ContainerBuilder $container
-     * @param PluginInterface $plugin
-     * @param array $processedConfiguration The fully processed configuration values for this bundle
+     * @param PluginInterface  $plugin
+     * @param array            $processedConfiguration The fully processed configuration values for this bundle
      */
     private function loadPlugin(ContainerBuilder $container, PluginInterface $plugin, array $processedConfiguration)
     {
@@ -71,7 +71,8 @@ final class PluginExtension extends Extension
      * Get just the part of the configuration values that applies to the given plugin.
      *
      * @param PluginInterface $plugin
-     * @param array $processedConfiguration The fully processed configuration values for this bundle
+     * @param array           $processedConfiguration The fully processed configuration values for this bundle
+     *
      * @return array
      */
     private function pluginConfiguration(PluginInterface $plugin, array $processedConfiguration)

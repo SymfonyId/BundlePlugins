@@ -63,7 +63,7 @@ abstract class PluginBundle extends Bundle
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     final public function build(ContainerBuilder $container)
     {
@@ -74,7 +74,7 @@ abstract class PluginBundle extends Bundle
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     final public function boot()
     {
@@ -103,7 +103,7 @@ abstract class PluginBundle extends Bundle
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     final public function getContainerExtension()
     {

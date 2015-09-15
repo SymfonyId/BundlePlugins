@@ -8,14 +8,14 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Extend this class instead of implementing `PluginInterface` if your plugin is pretty simple and doesn't need
+ * Extend this class instead of implementing `PluginInterface` if your plugin is pretty simple and doesn't need.
  */
 abstract class Plugin implements PluginInterface
 {
     /**
      * Override this method if your plugin needs its own configuration nodes.
      *
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function addConfiguration(ArrayNodeDefinition $pluginNode)
     {
@@ -24,7 +24,7 @@ abstract class Plugin implements PluginInterface
     /**
      * Override this method if your plugin needs to register compiler passes.
      *
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function build(ContainerBuilder $container)
     {
@@ -33,7 +33,7 @@ abstract class Plugin implements PluginInterface
     /**
      * Override this method if your plugin needs to do any kind of runtime initialization.
      *
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function boot(ContainerInterface $container)
     {

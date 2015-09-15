@@ -21,9 +21,8 @@ interface PluginInterface
     /**
      * Load this plugin: define services, load service definition files, etc.
      *
-     * @param array $pluginConfiguration The part of the bundle configuration for this plugin
+     * @param array            $pluginConfiguration The part of the bundle configuration for this plugin
      * @param ContainerBuilder $container
-     * @return void
      */
     public function load(array $pluginConfiguration, ContainerBuilder $container);
 
@@ -34,10 +33,9 @@ interface PluginInterface
      *             ->scalarNode('foo')
      *                 ->isRequired()
      *             ->end()
-     *         ->end();
+     *         ->end();.
      *
      * @param ArrayNodeDefinition $pluginNode
-     * @return void
      */
     public function addConfiguration(ArrayNodeDefinition $pluginNode);
 
@@ -45,8 +43,8 @@ interface PluginInterface
      * When the container is generated for the first time, you can register compiler passes inside this method.
      *
      * @see BundleInterface::build()
+     *
      * @param ContainerBuilder $container
-     * @return void
      */
     public function build(ContainerBuilder $container);
 
@@ -54,8 +52,8 @@ interface PluginInterface
      * When the bundles are booted, you can do any runtime initialization required inside this method.
      *
      * @see BundleInterface::boot()
+     *
      * @param ContainerInterface $container
-     * @return void
      */
     public function boot(ContainerInterface $container);
 
