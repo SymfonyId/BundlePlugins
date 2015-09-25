@@ -47,6 +47,10 @@ abstract class PluginBundle extends Bundle
     {
     }
 
+    public function addCommand(Application $application)
+    {
+    }
+
     public function load(array $config, ContainerBuilder $container)
     {
     }
@@ -86,6 +90,7 @@ abstract class PluginBundle extends Bundle
     final public function registerCommands(Application $application)
     {
         parent::registerCommands($application);
+        $this->addCommand($application);
 
         foreach ($this->registeredPlugins as $plugin) {
             $plugin->registerCommands($application);
