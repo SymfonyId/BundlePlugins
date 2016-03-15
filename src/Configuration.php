@@ -30,6 +30,7 @@ final class Configuration implements ConfigurationInterface
         $this->bundle->addConfiguration($rootNode);
 
         foreach ($this->bundle->getPlugins() as $plugin) {
+            /** @var Plugin $plugin */
             $pluginNode = $rootNode->children()->arrayNode($plugin->name());
             $plugin->addConfiguration($pluginNode);
         }
