@@ -3,10 +3,11 @@
 namespace Symfonian\Indonesia\BundlePlugins;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Config\Definition\Exception\UnsetKeyException;
 
-final class PluginExtension extends Extension
+final class PluginExtension extends Extension implements PrependExtensionInterface
 {
     /**
      * @var PluginBundle
@@ -19,6 +20,14 @@ final class PluginExtension extends Extension
     public function __construct(PluginBundle $bundle)
     {
         $this->bundle = $bundle;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function prepend(ContainerBuilder $container)
+    {
+        $this->bundle->prepend($container);
     }
 
     /**

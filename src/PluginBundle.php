@@ -47,14 +47,36 @@ abstract class PluginBundle extends Bundle
     {
     }
 
+    /**
+     * Add Command
+     *
+     * @param Application $application
+     */
     public function addCommand(Application $application)
     {
     }
 
+    /**
+     * Prepend Extension
+     *
+     * @param ContainerBuilder $container
+     */
+    public function prepend(ContainerBuilder $container)
+    {
+    }
+
+    /**
+     * @param array $config
+     * @param ContainerBuilder $container
+     */
     public function load(array $config, ContainerBuilder $container)
     {
     }
 
+    /**
+     * PluginBundle constructor.
+     * @param array $plugins
+     */
     public function __construct(array $plugins = array())
     {
         foreach ($this->defaultPlugins() as $plugin) {
